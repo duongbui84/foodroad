@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display CRUD</title>
+  </head>
+  <style>
+    th,
+    tr,
+    td {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+  </style>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <th>Stt</th>
+        <th>Email</th>
+        <th>Fullname</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Actions</th>
+      </tr>
+      <% for(let i=0; i < listUsers.length; i++) { %>
+      <tr>
+        <td><%= listUsers[i].id %></td>
+        <td><%= listUsers[i].email %></td>
+        <td><%= listUsers[i].fullName %></td>
+        <td><%= listUsers[i].address %></td>
+        <% if (listUsers[i].gender === 1) { %>
+        <td>Male</td>
+        <%} else {%>
+        <td>Female</td>
+        <% } %>
+        <td style="text-align: center">
+          <a href="edit-crud?id=<%= listUsers[i].id %>" type="button">Edit</a>
+          <a href="delete-crud?id=<%= listUsers[i].id %>" type="button"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
